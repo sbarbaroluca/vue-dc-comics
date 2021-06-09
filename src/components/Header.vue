@@ -8,9 +8,9 @@
           <li
             v-for="(link, index) in links"
             :key="index"
-            :class="{ active: link.selected}"
+            :class="{ active: link.selected }"
            >
-           <a :href="link.link">{{ link.text}}</a>
+           <a :href="link.link">{{ link.text }}</a>
           </li> 
         </ul>
       </nav>    
@@ -81,10 +81,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../style/variables";
+@import "../style/mixins";
 .container {
-  display: flex;
+  @include flex-center("vertical");
   justify-content: space-between;
-  align-items: center;
   overflow: hidden;
   img {
     padding: 10% 0;
@@ -109,11 +109,12 @@ export default {
         &.active::after {
           content: "";
           position: absolute;
-          top: 60px;
+          top: 65px;
           width: 100%;
           height: 20px;
           display: block;
           background: $brandColor;
+          cursor: default;
         }
       }
     }

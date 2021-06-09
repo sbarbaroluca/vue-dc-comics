@@ -1,8 +1,8 @@
 <template>
   <main>
-    <div class="container">
-      <h1>-->Content goes here &lt; --</h1>
-    </div>
+    <Jumbotron />
+    <Comics />
+    <div class="container"></div>
     <div class="stores">
       <div class="container">
         <div class="store-link">
@@ -31,18 +31,25 @@
 </template>
 
 <script>
+import Jumbotron from "./Jumbotron.vue";
+import Comics from "./Comics.vue";
 export default {
-        name: "Main"
+        name: "Main",
+        components: {
+          Jumbotron,
+          Comics
+        }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../style/variables";
+@import "../style/mixins";
 main {
   background: black;
   color: #fff;
   h1 {
-    line-height: 100px;
+    line-height: 150px;
   }
   .stores {
     height: 150px;
@@ -52,8 +59,7 @@ main {
       justify-content: space-around;
       height: 100%;
       .store-link {
-        display: flex;
-        align-items: center;
+        @include flex-center("vertical");
         width: 20%;
         &:last-child > img {
           height: 25%;
